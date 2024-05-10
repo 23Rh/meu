@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FELIZ 365 DIAS</title>
+    <style>
+        body {
+            background-color: #ffcccc;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h1 {
+            color: #ff3366;
+        }
+
+        .heart {
+            font-size: 50px;
+            color: #ff3366;
+            cursor: pointer;
+        }
+
+        #nao {
+            font-size: 24px;
+            color: #333;
+            background-color: #ffcccc;
+            border: none;
+            cursor: pointer;
+            position: absolute;
+        }
+
+        #resposta {
+            display: none;
+        }
+
+        #fotos {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .carousel {
+            width: 25%;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            width: 90px; /* Largura da imagem */
+            height: 100px; /* Altura da imagem */
+            flex: 0 0 auto;
+        }
+
+        .carousel img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Mantém a proporção da imagem */
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.5);
+            color: #333;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 24px;
+        }
+
+        .carousel-btn.prev {
+            left: 10px;
+        }
+
+        .carousel-btn.next {
+            right: 10px;
+        }
+        @media (max-width: 768px) {
+            .carousel {
+                width: 90%; /* Largura do carrossel para telas menores */
+            }
+
+            .carousel-item {
+                width: 90%; /* Largura da imagem para telas menores */
+                height: auto; /* Altura da imagem ajustada automaticamente */
+                margin: 0 auto; /* Centralizar imagens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>FELIZ 1 ANO!!</h1>
+        <p>Olá amor ❤️,</p>
+        <p>Quero dizer que você ilumina minha vida como ninguém mais.</p>
+        <p>Você aceita viver mais 365 dias comigo?</p>
+        <p class="SIM" onclick="redirecionar()">SIM</p>
+        <button id="nao" onmouseover="mudarPosicao()">NÃO</button>
+        <p id="resposta"></p>
+    <script>
+        function mudarPosicao() {
+            const buttonNao = document.getElementById('nao');
+            const randomX = Math.floor(Math.random() * window.innerWidth);
+            const randomY = Math.floor(Math.random() * window.innerHeight);
+            buttonNao.style.left = `${randomX}px`;
+            buttonNao.style.top = `${randomY}px`;
+        }
+
+        function showSlides(n) {
+            const slides = document.querySelectorAll('.carousel-item');
+            if (n >= slides.length) {
+                slideIndex = 0;
+            }
+            if (n < 0) {
+                slideIndex = slides.length - 1;
+            }
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+            slides[slideIndex].style.display = 'block';
+        }
+
+        function nextSlide() {
+            showSlides(slideIndex += 1);
+        }
+
+        function prevSlide() {
+            showSlides(slideIndex -= 1);
+        }
+
+        function redirecionar() {
+            window.location.href = "Pagina2.html";
+        }
+    </script>
+</body>
+</html>
